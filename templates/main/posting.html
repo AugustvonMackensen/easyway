@@ -1,0 +1,30 @@
+{% extends 'base_new.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<html>
+    <head>
+        <title>Posting!</title>
+    </head>
+    <body>
+        <p>{{post.title}}</p>
+        <br>
+
+        <p>{{post.content}}</p>
+        <br>
+
+        <!-- 이미지 보여주기 -->
+        {% if post.imgfile %}
+            <img src = "../..{{ post.imgfile.url }}" alt="" height="300">
+            <br>
+        {% endif %}
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <a href="blog/">목록</a>
+    </body>
+</html>
+{% endblock %}

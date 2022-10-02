@@ -1,0 +1,42 @@
+{% extends "base_new.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+
+</style>
+
+
+</head>
+<body>
+<h1>User Edit</h1>
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% include "../form_errors.html" %}
+        <input type="hidden" value="{{ form.id.value|default_if_none:'' }}">
+        <div class="form-group"><label for="id_username">사용자 이름</label><input type="text" name="username" value="{{ form.username.value|default_if_none:'' }}" maxlength="150" class="form-control" placeholder="사용자 이름" title="150자 이하 문자, 숫자 그리고 @/./+/-/_만 가능합니다." required="" id="id_username">
+        <small class="form-text text-muted">150자 이하 문자, 숫자 그리고 @/./+/-/_만 가능합니다.</small>
+        </div>
+        <div class="form-group"><label for="id_first_name">이름</label><input type="text" name="first_name" value="{{ form.first_name.value|default_if_none:'' }}" maxlength="150" class="form-control" placeholder="이름" title="" id="id_first_name"></div>
+        <div class="form-group"><label for="id_email">이메일 주소</label><input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" maxlength="254" class="form-control" placeholder="이메일 주소" title="" id="id_email"></div>
+        <div class="form-group"><label for="id_phone">휴대폰 번호</label><input type="text" name="phone" value="{{ form.phone.value|default_if_none:'' }}" maxlength="11" class="form-control" placeholder="휴대폰 번호" title="" required="" id="id_phone"></div>
+        <label class="pull-right">
+                                <a style="color: red;" href="{% url 'users:password' %}">비밀번호 변경</a>
+                            </label>
+        <button class="btn btn-primary">수정</button>
+
+    </form>
+    <br><br>
+    <div style="text-align: right;"><a href="{% url 'users:delete' %}" class="btn btn-danger">회원탈퇴</a></div>
+</body>
+
+
+{% endblock %}

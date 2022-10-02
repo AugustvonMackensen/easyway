@@ -1,0 +1,36 @@
+{% extends 'base_new.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<html>
+    <head>
+        <title>board List</title>
+    </head>
+    <body>
+        <h2>공지사항 </h2>
+                    <div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="text-center table-dark">
+        </tr>
+        </thead>
+        <table>
+        {% for list in postlist %}
+            <ul>
+                <li><a href="{{list.pk}}/">{{list.title}}</a></li>
+            </ul>
+        {% endfor %}
+        </table>
+                </body>
+</html>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+<button><a href="{% url 'main:fileupload' %}">공지작성</a></button>
+{% endblock %}
+
+
+

@@ -1,0 +1,32 @@
+{% extends "base_new.html" %}
+
+
+{% block content %}
+
+
+<body class="bg-dark" xmlns="http://www.w3.org/1999/html">
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="container my-3">
+                    <h1 style="color: red;">회원 탈퇴</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <p style="color: white;">정말로 탈퇴하시겠습니까? 더이상 EasyWay를 이용할 수 없습니다.</p>
+                        <div style="text-align: right;"><button  class="btn btn-danger" type="submit" onclick="alert('이용해주셔서 감사합니다.');">탈퇴</button></div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base_new.html" %}
+
+
+{% block content %}
+
+
+
+<body class="bg-dark">
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="{% url 'users:login' %}">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="container my-3">
+                    <h4 style="color:white;" class="border-bottom pb-2 my-3">메세지 전송 완료!</h4>
+                    <p style="color:white;" >휴대폰 메세지를 확인하세요.</p>
+                    <a href="{% url 'users:login' %}" class="btn btn-primary">로그인</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
